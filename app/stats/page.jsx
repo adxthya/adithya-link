@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 
 function unauthorized() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-background px-4">
+    <main className="flex min-h-dvh items-center justify-center bg-background px-4 py-8">
       <div className="w-full max-w-md rounded-[28px] border border-white/10 bg-card-gradient p-8 text-center shadow-2xl">
         <p className="font-mono text-xs uppercase tracking-[0.18em] text-link">
           private
@@ -49,7 +49,7 @@ export default async function StatsPage({ searchParams }) {
 
   if (!supabaseConfigured) {
     return (
-      <main className="flex min-h-screen items-center justify-center bg-background px-4">
+      <main className="flex min-h-dvh items-center justify-center bg-background px-4 py-8">
         <div className="w-full max-w-md rounded-[28px] border border-white/10 bg-card-gradient p-8 text-center shadow-2xl">
           <p className="font-mono text-xs uppercase tracking-[0.18em] text-link">
             stats
@@ -109,7 +109,7 @@ export default async function StatsPage({ searchParams }) {
   const maxDay = Math.max(1, ...chart.map((d) => d.count));
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg-background px-4 py-10">
+    <main className="flex min-h-dvh flex-col items-center bg-background px-4 py-10">
       <div className="w-full max-w-2xl">
         <div className="flex items-center justify-between">
           <h1 className="font-mono text-xs uppercase tracking-[0.18em] text-link">
@@ -123,7 +123,7 @@ export default async function StatsPage({ searchParams }) {
           </a>
         </div>
 
-        <section className="mt-6 rounded-[28px] border border-white/10 bg-card-gradient p-6 shadow-2xl">
+        <section className="mt-6 rounded-[28px] border border-white/10 bg-card-gradient p-4 shadow-2xl sm:p-6">
           <div className="grid grid-cols-2 gap-4">
             <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
               <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-foreground/45">
@@ -152,9 +152,9 @@ export default async function StatsPage({ searchParams }) {
                 No clicks logged yet.
               </p>
             ) : (
-              <div className="mt-4 flex items-end gap-1.5" role="img" aria-label="Daily clicks bar chart">
+              <div className="mt-4 flex items-end gap-1.5 overflow-x-auto pb-1 sm:overflow-x-visible" role="img" aria-label="Daily clicks bar chart">
                 {chart.map((d) => (
-                  <div key={d.key} className="flex flex-1 flex-col items-center gap-1.5">
+                  <div key={d.key} className="flex min-w-0 flex-1 flex-col items-center gap-1.5">
                     <span className="text-[10px] tabular-nums text-foreground/45">
                       {d.count || ""}
                     </span>
@@ -178,7 +178,7 @@ export default async function StatsPage({ searchParams }) {
           </div>
         </section>
 
-        <section className="mt-6 rounded-[28px] border border-white/10 bg-card-gradient p-6 shadow-2xl">
+        <section className="mt-6 rounded-[28px] border border-white/10 bg-card-gradient p-4 shadow-2xl sm:p-6">
           <h2 className="font-mono text-[10px] uppercase tracking-[0.14em] text-foreground/45">
             per link
           </h2>

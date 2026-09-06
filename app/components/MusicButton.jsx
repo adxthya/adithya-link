@@ -29,7 +29,7 @@ export default function MusicButton() {
     <>
       <audio
         ref={audioRef}
-        src="/audio/song.mp3"
+        src="/audio/song.m4a"
         preload="metadata"
         onEnded={() => setPlaying(false)}
       />
@@ -38,7 +38,7 @@ export default function MusicButton() {
         type="button"
         onClick={togglePlay}
         aria-label={playing ? "Pause music" : "Play music"}
-        className="relative z-20 grid size-10 cursor-pointer place-items-center rounded-full bg-chip text-chip-foreground transition-transform duration-200 hover:scale-105 active:scale-95"
+        className="relative z-20 grid size-11 cursor-pointer place-items-center rounded-full bg-chip text-chip-foreground transition-transform duration-200 hover:scale-105 active:scale-95 sm:size-10"
       >
         {playing ? (
           <Pause className="size-4.5" strokeWidth={1.8} />

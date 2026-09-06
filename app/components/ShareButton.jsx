@@ -42,7 +42,7 @@ export default function ShareButton() {
         type="button"
         aria-label="Share profile"
         onClick={share}
-        className="grid size-10 cursor-pointer place-items-center rounded-full bg-chip text-chip-foreground transition-transform duration-200 hover:scale-105 active:scale-95"
+        className="grid size-11 cursor-pointer place-items-center rounded-full bg-chip text-chip-foreground transition-transform duration-200 hover:scale-105 active:scale-95 sm:size-10"
       >
         <Share className="size-4.5" strokeWidth={1.8} />
       </button>

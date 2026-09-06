@@ -27,7 +27,7 @@ export default function LinkItem({ link }) {
       target="_blank"
       rel="noreferrer"
       onClick={() => recordClick(link.id)}
-      className="group relative flex items-center gap-3 rounded-full border-2 border-link-border bg-link p-1.5 shadow-link transition-all duration-300 hover:-translate-y-0.5 hover:brightness-105 hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] active:scale-[0.985]"
+      className="group relative flex min-h-14 items-center gap-3 rounded-full border-2 border-link-border bg-link p-1.5 shadow-link transition-all duration-300 hover:-translate-y-0.5 hover:brightness-105 hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] active:scale-[0.985] sm:min-h-0"
     >
       <img
         src={link.image}
@@ -38,12 +38,12 @@ export default function LinkItem({ link }) {
         className="size-11 shrink-0 rounded-full object-cover transition-transform duration-300 group-hover:scale-[1.04]"
       />
 
-      <span className="min-w-0 flex-1 truncate px-1 text-center text-base font-normal text-link-foreground">
+      <span className="min-w-0 flex-1 truncate px-1 text-center text-[15px] font-normal text-link-foreground sm:text-base">
         {link.label}
       </span>
 
       <span
-        className="grid size-8 shrink-0 place-items-center rounded-full text-link-foreground/70 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+        className="grid size-9 shrink-0 place-items-center rounded-full text-link-foreground/70 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 sm:size-8"
         aria-hidden="true"
       >
         <ArrowUpRight className="size-4" />
