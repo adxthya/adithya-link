@@ -1,37 +1,12 @@
-import { ArrowUpRight } from "lucide-react";
 import ShareButton from "./components/ShareButton";
-
-const links = [
-  {
-    label: "@halfasleepbun - instagram",
-    image: "/images/instagram.jpg",
-    href: "https://www.instagram.com/halfasleepbun",
-  },
-  {
-    label: "@adx.thya - discord",
-    image: "/images/discord.webp",
-    href: "https://discord.com/users/1416099867431931926",
-  },
-  {
-    label: "adii - spotify",
-    image: "/images/spotify.webp",
-    href: "https://open.spotify.com/user/31iogna4pulj6yjbaprphfn3gi2e?si=e53fafe9525b4e9b",
-  },
-  {
-    label: "adii.'s profile - letterboxd",
-    image: "/images/letterboxd.webp",
-    href: "https://boxd.it/4w3I7",
-  },
-  {
-    label: "adii. - goodreads",
-    image: "/images/goodreads.webp",
-    href: "https://goodreads.com/adithyakb",
-  },
-];
+import MusicButton from "./components/MusicButton";
+import RotatingPhrase from "./components/RotatingPhrase";
+import LinkItem from "./components/LinkItem";
+import { links } from "./links";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-background px-4 py-10">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-background px-4">
       <div className="relative w-full max-w-lg overflow-hidden rounded-[28px] border border-white/10 bg-card-gradient shadow-2xl backdrop-blur-xl">
         <div
           className="pointer-events-none absolute inset-0 bg-page-glow"
@@ -39,7 +14,8 @@ export default function Home() {
         />
 
         <div className="relative z-10 flex flex-col px-5 pb-10 pt-6">
-          <div className="flex items-start justify-end">
+          <div className="flex items-start justify-between">
+            <MusicButton />
             <ShareButton />
           </div>
 
@@ -49,14 +25,14 @@ export default function Home() {
               alt="adii. profile picture"
               width={512}
               height={512}
-              className="size-24 rounded-full object-cover"
+              className="size-24 rounded-full object-cover ring-1 ring-white/15 shadow-lg"
             />
-            <h1 className="mt-3 text-2xl font-normal tracking-tight text-foreground">
+
+            <h1 className="mt-3 text-[25px] font-medium tracking-[-0.02em] text-foreground">
               adii.
             </h1>
-            <p className="mt-1 text-base text-foreground/90">
-              Somewhere between here and there.
-            </p>
+
+            <RotatingPhrase />
           </header>
 
           <div className="mt-5 flex items-center justify-center">
@@ -74,33 +50,7 @@ export default function Home() {
 
           <nav className="mt-8 flex flex-col gap-4">
             {links.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noreferrer"
-                className="group relative flex items-center gap-3 rounded-full border-2 border-link-border bg-link p-1.5 shadow-link transition-all duration-300 hover:-translate-y-0.5 hover:brightness-105 hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] active:scale-[0.985]"
-              >
-                <img
-                  src={link.image}
-                  alt=""
-                  loading="lazy"
-                  width={512}
-                  height={512}
-                  className="size-11 shrink-0 rounded-full object-cover transition-transform duration-300 group-hover:scale-[1.04]"
-                />
-
-                <span className="min-w-0 flex-1 truncate px-1 text-center text-base font-normal text-link-foreground">
-                  {link.label}
-                </span>
-
-                <span
-                  className="grid size-8 shrink-0 place-items-center rounded-full text-link-foreground/70 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                  aria-hidden="true"
-                >
-                  <ArrowUpRight className="size-4" />
-                </span>
-              </a>
+              <LinkItem key={link.id} link={link} />
             ))}
           </nav>
 
