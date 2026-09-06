@@ -1,0 +1,76 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-link: var(--link);
+  --color-link-foreground: var(--link-foreground);
+  --color-link-border: var(--link-border);
+
+  --color-chip: var(--chip);
+  --color-chip-foreground: var(--chip-foreground);
+
+  --color-glass: var(--glass);
+  --color-glass-border: var(--glass-border);
+
+  --shadow-link: var(--shadow-link-value);
+
+  --background-image-page-glow: var(--page-glow);
+  --background-image-card-gradient: var(--card-gradient);
+
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Base */
+  --background: oklch(0.371 0.022 121);
+  --foreground: oklch(0.97 0.008 106);
+
+  /* Link buttons */
+  --link: oklch(0.487 0.117 32);
+  --link-foreground: oklch(0.98 0.005 106);
+  --link-border: oklch(0.16 0.02 120);
+  --shadow-link-value: 0 5px 0 oklch(0.16 0.02 120 / 0.9);
+
+  /* Share button */
+  --chip: oklch(0.98 0.004 106);
+  --chip-foreground: oklch(0.2 0.02 120);
+
+  /* Glass elements */
+  --glass: oklch(1 0 0 / 5%);
+  --glass-border: oklch(1 0 0 / 10%);
+
+  /* Background glow */
+  --page-glow: radial-gradient(
+    ellipse 90% 55% at 50% 8%,
+    oklch(0.42 0.045 126 / 0.85),
+    transparent 70%
+  );
+
+  /* Profile card */
+  --card-gradient: linear-gradient(
+    180deg,
+    oklch(0.42 0.045 126 / 0.45),
+    oklch(0.3 0.03 126 / 0.35)
+  );
+}
+
+@layer base {
+  body {
+    @apply bg-background font-sans text-foreground;
+  }
+}

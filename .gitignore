@@ -1,0 +1,12 @@
+node_modules/
+.next/
+.out/
+.env
+.env.*
+!.env.example
+
+# Bun vs npm lockfiles — bun.lock is the source of truth
+package-lock.json
+
+.DS_Store
+*.log
