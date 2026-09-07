@@ -6,7 +6,7 @@ import { links } from "./links";
 
 export default function Home() {
   return (
-    <main className="relative flex h-dvh w-full flex-col items-center justify-center overflow-hidden bg-background px-4">
+    <main className="relative flex h-dvh w-full flex-col items-center justify-center overflow-hidden bg-background px-4 py-8 sm:py-0">
       {/* Background */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -100,7 +100,7 @@ export default function Home() {
           <div className="mt-4 flex items-center justify-center sm:mt-5">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.07] px-3.5 py-1.5 font-mono text-xs text-white/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_4px_20px_rgba(0,0,0,0.12)] backdrop-blur-xl sm:px-4 sm:py-2 sm:text-sm">
               <span className="h-1.5 w-1.5 rounded-full bg-white/40" />
-              probably asleep
+              Seeking Coffee
             </div>
           </div>
 
