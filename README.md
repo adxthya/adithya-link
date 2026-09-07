@@ -38,13 +38,16 @@ cp .env.example .env
 ```env
 SUPABASE_URL=
 SUPABASE_SERVICE_ROLE_KEY=
+# Optional: require a password to open /stats
+STATS_PASSWORD=
 ```
 
 Restart the dev server after adding them.
 
 ### 3. View stats
 
-Open `http://localhost:3000/stats`.
+Open `http://localhost:3000/stats`. If `STATS_PASSWORD` is set, you'll be
+prompted for it; the session persists for 30 days via an httpOnly cookie.
 
 The analytics endpoint (`POST /api/click`) fires from the client and is
 fire-and-forget — a failed or slow insert never blocks or breaks the link

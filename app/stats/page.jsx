@@ -1,5 +1,9 @@
+import { cookies } from "next/headers";
 import { supabaseConfigured, supabaseFetchAll } from "../../lib/supabase";
 import { links } from "../links";
+import ResetStatsButton from "../components/ResetStatsButton";
+import StatsPasswordForm from "../components/StatsPasswordForm";
+import { STATS_COOKIE, statsAuthed } from "../../lib/stats-auth";
 
 export const dynamic = "force-dynamic";
 
@@ -28,6 +32,22 @@ function shorter(dayKeyStr) {
 }
 
 export default async function StatsPage() {
+  const authed = statsAuthed((await cookies()).get(STATS_COOKIE)?.value);
+
+  if (!authed) {
+    return (
+      <main className="flex min-h-dvh items-center justify-center bg-background px-4 py-8">
+        <div className="w-full max-w-md rounded-[28px] border border-white/10 bg-card-gradient p-8 text-center shadow-2xl">
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-link">
+            stats
+          </p>
+          <h1 className="mt-3 text-lg text-foreground">Locked.</h1>
+          <StatsPasswordForm />
+        </div>
+      </main>
+    );
+  }
+
   if (!supabaseConfigured) {
     return (
       <main className="flex min-h-dvh items-center justify-center bg-background px-4 py-8">
@@ -96,12 +116,21 @@ export default async function StatsPage() {
           <h1 className="font-mono text-xs uppercase tracking-[0.18em] text-link">
             click stats
           </h1>
-          <a
-            href="/"
-            className="text-xs text-foreground/40 transition-colors hover:text-foreground/70"
-          >
-            ← back
-          </a>
+          <div className="flex items-center gap-4">
+            <ResetStatsButton />
+            <a
+              href="/api/stats/logout"
+              className="text-xs text-foreground/40 transition-colors hover:text-foreground/70"
+            >
+              lock
+            </a>
+            <a
+              href="/"
+              className="text-xs text-foreground/40 transition-colors hover:text-foreground/70"
+            >
+              ← back
+            </a>
+          </div>
         </div>
 
         <section className="mt-6 rounded-[28px] border border-white/10 bg-card-gradient p-4 shadow-2xl sm:p-6">
