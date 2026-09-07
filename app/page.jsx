@@ -2,16 +2,31 @@ import ShareButton from "./components/ShareButton";
 import MusicButton from "./components/MusicButton";
 import RotatingPhrase from "./components/RotatingPhrase";
 import LinkItem from "./components/LinkItem";
-import { links } from "./links";
+import { links } from "./links"
 
 export default function Home() {
   return (
-    <main className="flex min-h-dvh flex-col items-center justify-center bg-background px-4 py-8 sm:py-10">
-      <div className="relative w-full max-w-lg overflow-hidden rounded-[28px] border border-white/10 bg-card-gradient shadow-2xl backdrop-blur-xl">
+    <main className="relative flex min-h-dvh flex-col items-center justify-center overflow-hidden bg-background px-4 py-8 sm:py-10">
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{ backgroundImage: "url('/images/background.webp')" }}
+    aria-hidden="true"
+  />
+
+  <div
+    className="absolute inset-0 bg-black/35"
+    aria-hidden="true"
+  />
+
+  <div className="relative z-10 w-full max-w-lg overflow-hidden rounded-[28px] border border-white/15 bg-card-gradient shadow-2xl backdrop-blur-2xl">
         <div
-          className="pointer-events-none absolute inset-0 bg-page-glow"
-          aria-hidden="true"
-        />
+  className="pointer-events-none absolute inset-0 bg-page-glow opacity-70"
+  aria-hidden="true"
+/>
+<div
+  className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white/[0.06] to-transparent"
+  aria-hidden="true"
+/>
 
         <div className="relative z-10 flex flex-col px-4 pb-8 pt-5 sm:px-5 sm:pb-10 sm:pt-6">
           <div className="flex items-start justify-between">

@@ -78,10 +78,10 @@
 
   /* Profile card */
   --card-gradient: linear-gradient(
-    180deg,
-    oklch(0.42 0.045 126 / 0.45),
-    oklch(0.3 0.03 126 / 0.35)
-  );
+  180deg,
+  oklch(0.32 0.035 125 / 0.68),
+  oklch(0.22 0.025 125 / 0.72)
+);
 }
 
 @layer base {
