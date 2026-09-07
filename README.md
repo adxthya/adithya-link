@@ -38,15 +38,13 @@ cp .env.example .env
 ```env
 SUPABASE_URL=
 SUPABASE_SERVICE_ROLE_KEY=
-# Optional: require `?token=<value>` to open /stats
-STATS_TOKEN=
 ```
 
 Restart the dev server after adding them.
 
 ### 3. View stats
 
-Open `http://localhost:3000/stats` (with `?token=...` if `STATS_TOKEN` is set).
+Open `http://localhost:3000/stats`.
 
 The analytics endpoint (`POST /api/click`) fires from the client and is
 fire-and-forget — a failed or slow insert never blocks or breaks the link

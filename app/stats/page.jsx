@@ -3,19 +3,6 @@ import { links } from "../links";
 
 export const dynamic = "force-dynamic";
 
-function unauthorized() {
-  return (
-    <main className="flex min-h-dvh items-center justify-center bg-background px-4 py-8">
-      <div className="w-full max-w-md rounded-[28px] border border-white/10 bg-card-gradient p-8 text-center shadow-2xl">
-        <p className="font-mono text-xs uppercase tracking-[0.18em] text-link">
-          private
-        </p>
-        <h1 className="mt-3 text-xl text-foreground">No peeking.</h1>
-      </div>
-    </main>
-  );
-}
-
 const DAY_MS = 86_400_000;
 const CHART_DAYS = 14;
 
@@ -40,13 +27,7 @@ function shorter(dayKeyStr) {
   return d.toLocaleDateString("en-US", { month: "short", day: "numeric" }).replace(",", "");
 }
 
-export default async function StatsPage({ searchParams }) {
-  const params = await searchParams;
-  const token = process.env.STATS_TOKEN;
-  if (token && params?.token !== token) {
-    return unauthorized();
-  }
-
+export default async function StatsPage() {
   if (!supabaseConfigured) {
     return (
       <main className="flex min-h-dvh items-center justify-center bg-background px-4 py-8">
